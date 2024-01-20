@@ -13,6 +13,10 @@ class CommentSerializer(serializers.ModelSerializer):
 class BookSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True, read_only=True)
     slug = serializers.ReadOnlyField(read_only=True)
+    detail_link = serializers.HyperlinkedIdentityField(
+        view_name='book-detail',
+        lookup_field='slug'
+    )
 
     class Meta:
         model = Book
