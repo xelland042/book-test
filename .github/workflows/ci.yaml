@@ -8,8 +8,6 @@ jobs:
       db:
         image: postgres
         env:
-          DJANGO_SETTINGS_MODULE: core.settings.local
-          SECRET_KEY: django-insecure-bg!v#&p_5-8py*&0=jni8o@99e*1jz6_it$o!7ptx0ehw5)(_u
           DB_NAME: drf_lesson_1
           DB_USER: postgres
           DB_PASSWORD: 111213
@@ -34,4 +32,12 @@ jobs:
         env:
           DJANGO_SETTINGS_MODULE: core.settings.local
           SECRET_KEY: django-insecure-bg!v#&p_5-8py*&0=jni8o@99e*1jz6_it$o!7ptx0ehw5)(_u
+          DB_NAME: drf_lesson_1
+          DB_USER: postgres
+          DB_PASSWORD: 111213
+          DB_HOST: localhost
+          DB_PORT: 5432
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 111213
+          POSTGRES_DB: drf_lesson_1
         run: python manage.py test
