@@ -4,6 +4,23 @@ jobs:
   first:
     name: Install Ubuntu
     runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres
+        env:
+          DJANGO_SETTINGS_MODULE: core.settings.local
+          SECRET_KEY: django-insecure-bg!v#&p_5-8py*&0=jni8o@99e*1jz6_it$o!7ptx0ehw5)(_u
+          DB_NAME: drf_lesson_1
+          DB_USER: postgres
+          DB_PASSWORD: 111213
+          DB_HOST: localhost
+          DB_PORT: 5432
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 111213
+          POSTGRES_DB: drf_lesson_1
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - name: Update
         run: sudo apt-get update
